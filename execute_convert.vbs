@@ -14,6 +14,10 @@ Class ExecuteConvert
             strSplit = Split(objItem.Name, ".")
             ExecuteEncode objItem.Name, strSplit(0) & ".mp3"
         Next
+        Set objFileSys = Nothing
+        Set objShell = Nothing
+        Set strScriptPath = Nothing
+        Set strBinPath = Nothing
         MsgBox "Finished"
     End Function
     Private Sub ExecuteEncode(inputFileName, outputFileName)
