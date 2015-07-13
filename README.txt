@@ -1,3 +1,12 @@
+\sound_covert_tool_for_unity\sound\input
+にWavを置き
+execute_convert.vbs
+を実行すると
+\sound_covert_tool_for_unity\sound\output
+に192kのMP3が吐出されます。
+
+UnityのEditorから実行出来るようにする予定。
+
 This is a FFmpeg Win64 static build by Kyle Schwarz.
 
 Zeranoe's FFmpeg Builds Home Page: <http://ffmpeg.zeranoe.com/builds/>
