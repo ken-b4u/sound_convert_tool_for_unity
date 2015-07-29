@@ -22,7 +22,7 @@ Class ExecuteConvert
     End Function
     Private Sub ExecuteEncode(inputFileName, outputFileName)
         Set objShell = CreateObject("WScript.Shell")
-        strCommand = strBinPath & " -i " & inputDirectory & "\" & inputFileName & " -b:v 192000 " & outputDirectory & "\" & outputFileName
+        strCommand = strBinPath & " -i " & inputDirectory & "\" & inputFileName & " -b:a 192000 " & outputDirectory & "\" & outputFileName
         objShell.Run strCommand,0,False
     End Sub
     Private Function GetFileList()
