@@ -10,11 +10,12 @@ Class ExecuteConvert
         strScriptPath = Replace(WScript.ScriptFullName,WScript.ScriptName,"")
         strBinPath = objFileSys.BuildPath(strScriptPath, "bin\ffmpeg.exe")
         Set fileList = GetFileList()
-        inputValue = InputBox("bitrate 128-256", "Input")
-        if inputValue >= 128 and inputValue <= 256 Then
+        inputValue = InputBox("bitrate 64-256", "Input")
+        if inputValue >= 64 and inputValue <= 256 Then
             For Each objItem In fileList.Files
                 strSplit = Split(objItem.Name, ".")
                 ExecuteEncode objItem.Name, strSplit(0) & ".mp3", inputValue
+                'ExecuteEncode objItem.Name, strSplit(0) & ".m4a", inputValue
             Next
         End if
         Set objFileSys = Nothing
@@ -25,6 +26,7 @@ Class ExecuteConvert
     End Function
     Private Sub ExecuteEncode(inputFileName, outputFileName, inputValue)
         Set objShell = CreateObject("WScript.Shell")
+        'strCommand = strBinPath & " -i " & inputDirectory & "\" & inputFileName & " -c:a libfdk_aac -b:a " & inputValue & "000 " & outputDirectory & "\" & outputFileName
         strCommand = strBinPath & " -i " & inputDirectory & "\" & inputFileName & " -b:a " & inputValue & "000 " & outputDirectory & "\" & outputFileName
         objShell.Run strCommand,0,False
     End Sub
